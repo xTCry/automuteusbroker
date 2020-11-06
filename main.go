@@ -1,14 +1,18 @@
 package main
 
 import (
-	"github.com/denverquane/automuteusbroker/broker"
 	"log"
 	"os"
+
+	"github.com/denverquane/automuteusbroker/broker"
+	"github.com/joho/godotenv"
 )
 
 const DefaultPort = "8123"
 
 func main() {
+	godotenv.Load("config.txt")
+
 	redisAddr := os.Getenv("REDIS_ADDRESS")
 	if redisAddr == "" {
 		log.Fatal("No REDIS_ADDRESS specified. Exiting.")

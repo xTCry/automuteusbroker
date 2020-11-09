@@ -23,6 +23,11 @@ type Job struct {
 	Payload interface{} `json:"payload"`
 }
 
+// renama this pls
+type DiscordGame struct {
+	LobbyCode string `json:"LobbyCode"`
+}
+
 const JobNamespace = "automuteus:jobs:"
 
 func PushJob(ctx context.Context, redis *redis.Client, connCode string, jobType JobType, payload string) error {
